@@ -1,0 +1,118 @@
+--//Roblox Anti-AFK\-- for i, v in next, getconnections(game.Players.LocalPlayer.Idled) do v:Disable(); end;
+
+local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/10x00/Tools/main/Venyx%20UI"))()
+
+local library = library.new("One Piece Millennium", 5013109572)
+
+--//Page Starting\-- local page = library:addPage("Main", 5012544693) local page2 = library:addPage("Stats", 5012544693) local page3 = library:addPage("Teleports", 5012544693) local page1 = library:addPage("Credits", 5012544693)
+
+local section1 = page:addSection("One Piece") local section0 = page:addSection("Settings") local section3 = page:addSection("Others")
+
+local section4 = page2:addSection("Auto Stats") local section5 = page3:addSection("Teleports") local section2 = page1:addSection("Credits")
+
+local Mob = {""}; for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do table.insert(Mob,v.Name) end;
+
+local MobToFarm = ""; local virtualUser = game:GetService('VirtualUser') local DIS = 5 local MobToFarm = ""; local Quest = {"Level 1+","Level 15+","Level 35+","Level 45+","Level 75+","Level 90+","Level 100+","Level 160+","Level 210+","Level 250+","Level 260+","Level 350+","Level 480+"}; local QuestVal = ""; local RemoteCall = "";
+
+-- NoClip game:GetService("RunService").Stepped:Connect(function() if getgenv().Auto then game.Players.LocalPlayer.Character.Humanoid:ChangeState(11) end end)
+
+-- NoClip game:GetService("RunService").Stepped:Connect(function() if getgenv().MoneyFarm then game.Players.LocalPlayer.Character.Humanoid:ChangeState(11) end end)
+
+section1:addDropdown("Mob",Mob, function(value) MobToFarm = value end);
+
+section1:addDropdown("Quest",Quest, function(value) QuestVal = value end);
+
+section1:addToggle("Autofarm",nil, function(value) getgenv().Auto = value
+
+while getgenv().Auto and wait() do pcall(function() if getgenv().FarmMethod == "Underground" then for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do if game.Players.LocalPlayer.Character and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") then if v.Name == MobToFarm and v.Humanoid.Health > 0 then repeat wait() if v:FindFirstChild("HumanoidRootPart") then game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame - Vector3.new(0,DIS,0) game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(game.Players.LocalPlayer.Character.HumanoidRootPart.Position,v.HumanoidRootPart.Position) if RemoteCall == "Fist" then local a={[1]={["Input"]="LMB1",["Name"]="PunchLMB4"}}game:GetService("ReplicatedStorage").Core.Combat.CombatController:FireServer(unpack(a)) elseif RemoteCall == "Sword" then local a={[1]={["Input"]="LMB1",["Name"]="3SSLMB1"}}game:GetService("ReplicatedStorage").Core.Combat.CombatController:FireServer(unpack(a)) local a={[1]={["Input"]="LMB1",["Name"]="2SSLMB1"}}game:GetService("ReplicatedStorage").Core.Combat.CombatController:FireServer(unpack(a)) local a={[1]={["Input"]="LMB1",["Name"]="1SSLMB1"}}game:GetService("ReplicatedStorage").Core.Combat.CombatController:FireServer(unpack(a)) end; end; until v.Humanoid.Health <= 0 or not getgenv().Auto end; end; end; end; if getgenv().FarmMethod == "Behind" then for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do if game.Players.LocalPlayer.Character and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") then if v.Name == MobToFarm and v.Humanoid.Health > 0 then repeat wait() if v:FindFirstChild("HumanoidRootPart") then game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame + (v.HumanoidRootPart.CFrame.lookVector * -5) if RemoteCall == "Fist" then local a={[1]={["Input"]="LMB1",["Name"]="PunchLMB4"}}game:GetService("ReplicatedStorage").Core.Combat.CombatController:FireServer(unpack(a)) elseif RemoteCall == "Sword" then local a={[1]={["Input"]="LMB1",["Name"]="3SSLMB1"}}game:GetService("ReplicatedStorage").Core.Combat.CombatController:FireServer(unpack(a)) local a={[1]={["Input"]="LMB1",["Name"]="2SSLMB1"}}game:GetService("ReplicatedStorage").Core.Combat.CombatController:FireServer(unpack(a)) local a={[1]={["Input"]="LMB1",["Name"]="1SSLMB1"}}game:GetService("ReplicatedStorage").Core.Combat.CombatController:FireServer(unpack(a)) end; end; until v.Humanoid.Health <= 0 or not getgenv().Auto end; end; end; end; end) end; end);
+
+section1:addToggle("Auto Quest",nil, function(value) getgenv().AutoQuest = value
+
+while getgenv().AutoQuest and wait(2) do if game:GetService("Players").LocalPlayer.PlayerGui.Interface.QuestUpdater.Visible == false then if QuestVal == "Level 1+" then local a={[1]={["Type"]="Quest",["Description"]="Your mom is fat - 10x",["ID"]="Level1Quest",["MinimumLevel"]=1,["NPCName"]="Level1Quest",["Job"]="AcceptDialogue"}}game:GetService("ReplicatedStorage").Remotes.ClientE:FireServer(unpack(a)) elseif QuestVal == "Level 15+" then local a={[1]={["Type"]="Quest",["Description"]="Your mom is fat - 10x",["ID"]="Level15Quest",["MinimumLevel"]=1,["NPCName"]="Level1Quest",["Job"]="AcceptDialogue"}}game:GetService("ReplicatedStorage").Remotes.ClientE:FireServer(unpack(a)) elseif QuestVal == "Level 35+" then local a={[1]={["Type"]="Quest",["Description"]="Your mom is fat - 10x",["ID"]="Level35Quest",["MinimumLevel"]=1,["NPCName"]="Level1Quest",["Job"]="AcceptDialogue"}}game:GetService("ReplicatedStorage").Remotes.ClientE:FireServer(unpack(a)) elseif QuestVal == "Level 45+" then local a={[1]={["Type"]="Quest",["Description"]="Your mom is fat - 10x",["ID"]="Level45Quest",["MinimumLevel"]=1,["NPCName"]="Level1Quest",["Job"]="AcceptDialogue"}}game:GetService("ReplicatedStorage").Remotes.ClientE:FireServer(unpack(a)) elseif QuestVal == "Level 75+" then local a={[1]={["Type"]="Quest",["Description"]="Your mom is fat - 10x",["ID"]="Level75Quest",["MinimumLevel"]=1,["NPCName"]="Level1Quest",["Job"]="AcceptDialogue"}}game:GetService("ReplicatedStorage").Remotes.ClientE:FireServer(unpack(a)) elseif QuestVal == "Level 90+" then local a={[1]={["Type"]="Quest",["Description"]="Your mom is fat - 10x",["ID"]="Level90Quest",["MinimumLevel"]=1,["NPCName"]="Level1Quest",["Job"]="AcceptDialogue"}}game:GetService("ReplicatedStorage").Remotes.ClientE:FireServer(unpack(a)) elseif QuestVal == "Level 100+" then local a={[1]={["Type"]="Quest",["Description"]="Your mom is fat - 10x",["ID"]="Level100Quest",["MinimumLevel"]=1,["NPCName"]="Level1Quest",["Job"]="AcceptDialogue"}}game:GetService("ReplicatedStorage").Remotes.ClientE:FireServer(unpack(a)) elseif QuestVal == "Level 160+" then local a={[1]={["Type"]="Quest",["Description"]="Your mom is fat - 10x",["ID"]="Level160Quest",["MinimumLevel"]=1,["NPCName"]="Level1Quest",["Job"]="AcceptDialogue"}}game:GetService("ReplicatedStorage").Remotes.ClientE:FireServer(unpack(a)) elseif QuestVal == "Level 210+" then local a={[1]={["Type"]="Quest",["Description"]="Your mom is fat - 10x",["ID"]="Level210Quest",["MinimumLevel"]=1,["NPCName"]="Level210Quest",["Job"]="AcceptDialogue"}}game:GetService("ReplicatedStorage").Remotes.ClientE:FireServer(unpack(a)) elseif QuestVal == "Level 250+" then local a={[1]={["Type"]="Quest",["Description"]="Your mom is fat - 10x",["ID"]="Level250Quest",["MinimumLevel"]=1,["NPCName"]="Level260Quest",["Job"]="AcceptDialogue"}}game:GetService("ReplicatedStorage").Remotes.ClientE:FireServer(unpack(a)) elseif QuestVal == "Level 260+" then local a={[1]={["Type"]="Quest",["Description"]="Your mom is fat - 10x",["ID"]="Level260Quest",["MinimumLevel"]=1,["NPCName"]="Level260Quest",["Job"]="AcceptDialogue"}}game:GetService("ReplicatedStorage").Remotes.ClientE:FireServer(unpack(a)) elseif QuestVal == "Level 350+" then local a={[1]={["Type"]="Quest",["Description"]="Your mom is fat - 10x",["ID"]="Level350Quest",["MinimumLevel"]=1,["NPCName"]="Level260Quest",["Job"]="AcceptDialogue"}}game:GetService("ReplicatedStorage").Remotes.ClientE:FireServer(unpack(a)) elseif QuestVal == "Level 480+" then local a={[1]={["Type"]="Quest",["Description"]="Your mom is fat - 10x",["ID"]="Level600Quest",["MinimumLevel"]=1,["NPCName"]="Level480Quest",["Job"]="AcceptDialogue"}}game:GetService("ReplicatedStorage").Remotes.ClientE:FireServer(unpack(a)) elseif QuestVal == "Level 480+" then elseif QuestVal ==" Level 600+" end; end; end; end);
+
+section1:addDropdown("Autofarm Method",{"Underground","Behind"}, function(value) getgenv().FarmMethod = value end);
+
+section1:addDropdown("Weapon",{"Fist","Sword"}, function(value) RemoteCall = value end);
+
+section0:addToggle("Fruit TP",nil, function(value) getgenv().FruitTP = value
+
+while getgenv().FruitTP and wait() do
+for i,v in pairs(game:GetService("Workspace"):GetChildren()) do
+        if v:IsA("Tool") then
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Handle.CFrame
+        end;
+    end;
+end;
+end);
+
+section0:addToggle("Auto Buy Fruit",nil, function(value) getgenv().AutoBuy = value
+
+while getgenv().AutoBuy and wait() do local a={[1]={["Job"]="PurchaseBeliFruitSpin"}}game:GetService("ReplicatedStorage").Remotes.ClientE:FireServer(unpack(a)) end; end);
+
+section0:addToggle("Kill Aura",nil, function(value) getgenv().KillAura = value
+
+while getgenv().KillAura and wait() do local a={[1]="Lion's Song",[2]=Vector3.new(0,0,0)}game:GetService("ReplicatedStorage").Remotes.SkillsCheck:FireServer(unpack(a)) local a={[1]="Lion's Song"}game:GetService("ReplicatedStorage").Remotes.SkillDamage:FireServer(unpack(a)) end; end);
+
+section0:addSlider("Distance", 0, -10, 10, function(value) DIS = value end);
+
+section3:addToggle("No Water Damage",nil, function(value) getgenv().NoWater = value
+
+while getgenv().NoWater and wait() do pcall(function() for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do if v.Name == "WaterDamage" then v:Destroy() end; end; end); end; end);
+
+section3:addToggle("No Cooldown",nil, function(value) getgenv().NoCD = value
+
+while getgenv().NoCD and wait() do pcall(function() for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do if v.Name == "Combo" then v:Destroy(); end; end; end); end; end);
+
+section4:addToggle("Auto Strength",nil, function(value) getgenv().S = value
+
+while getgenv().S and wait() do local a={[1]={["Value"]=1,["Name"]="Strength",["Job"]="UpgradeAttribute"}}game:GetService("ReplicatedStorage").Remotes.ClientE:FireServer(unpack(a)) end; end);
+
+section4:addToggle("Auto Sword",nil, function(value) getgenv().SW = value
+
+while getgenv().S and wait() do
+    local a={[1]={["Value"]=1,["Name"]="Sword",["Job"]="UpgradeAttribute"}}game:GetService("ReplicatedStorage").Remotes.ClientE:FireServer(unpack(a))
+end;
+end);
+
+section4:addToggle("Auto Endurance",nil, function(value) getgenv().ED = value
+
+while getgenv().ED and wait() do
+    local a={[1]={["Value"]=1,["Name"]="Endurance",["Job"]="UpgradeAttribute"}}game:GetService("ReplicatedStorage").Remotes.ClientE:FireServer(unpack(a))
+end;
+end);
+
+section4:addToggle("Auto Gun",nil, function(value) getgenv().GUN = value
+
+while getgenv().GUN and wait() do
+    local a={[1]={["Value"]=1,["Name"]="Gun",["Job"]="UpgradeAttribute"}}game:GetService("ReplicatedStorage").Remotes.ClientE:FireServer(unpack(a))
+end;
+end);
+
+section4:addToggle("Auto Devil Fruit",nil, function(value) getgenv().GUN = value
+
+while getgenv().GUN and wait() do
+    local a={[1]={["Value"]=1,["Name"]="DevilFruit",["Job"]="UpgradeAttribute"}}game:GetService("ReplicatedStorage").Remotes.ClientE:FireServer(unpack(a))
+end;
+end);
+
+section5:addButton("Buggy Island", function() game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(3082.05127, 266.947693, 5197.0376, -0.984812617, 0, -0.173621148, 0, 1, 0, 0.173621148, 0, -0.984812617) end);
+
+section5:addButton("Alabasta Island", function() game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1620.8811, 132.339691, -5224.22217, 0.595704794, -0, -0.803203583, 0, 1, -0, 0.803203583, 0, 0.595704794) end);
+
+section5:addButton("Skypiea Island", function() game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-3641.69141, 2177.0376, 5864.93066, 0.766061246, 0, 0.642767608, 0, 1, 0, -0.642767608, 0, 0.766061246) end);
+
+section5:addButton("Marine Island", function() game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(2311.48438, 134.090256, 1095.94824, 0.258787334, -4.8160553e-05, -0.965934396, 0.167778954, 0.984801531, 0.0449012443, 0.951251507, -0.173683316, 0.254862249) end);
+
+section5:addButton("Snow Island", function() game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-5021.7417, 154.845078, 747.048767, 0.766061246, 0, 0.642767608, 0, 1, 0, -0.642767608, 0, 0.766061246) end);
+
+section5:addButton("Revo Island", function() game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(6811.19775, 142.326645, 973.049255, -0.857353747, -6.28060022e-08, 0.514727652, -1.56661226e-08, 1, 9.59237241e-08, -0.514727652, 7.41767821e-08, -0.857353747) end);
+
+section5:addButton("Windmill Island", function() game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(4858.24316, 132.441193, -3416.64624, -0.871064365, -4.63649954e-08, -0.491168857, -7.89826338e-09, 1, -8.03900733e-08, 0.491168857, -6.61455459e-08, -0.871064365) end);
+
+section2:addButton("Copy Discord", function() setclipboard("https://discord.com/invite/b7mGeFnhHc") end);
+
+section2:addButton("Print Discord", function() print("https://discord.com/invite/b7mGeFnhHc") end);
+
+section2:addButton("Made By 10x", function()
+
+end);
